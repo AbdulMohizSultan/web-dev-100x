@@ -1,17 +1,19 @@
 var istatus = document.querySelector("h5")
 
-var addFriend = document.querySelector('#add')
+var btn = document.querySelector('#add')
 
 check = 0 ;
 
-addFriend.addEventListener('click',function(){
+btn.addEventListener('click',function(){
     if( check == 0){
        istatus.innerHTML = 'Freinds'
        istatus.style.color = 'green'
+       btn.innerHTML = 'Remove Friend'
        check = 1 
     }else {
         istatus.innerHTML = 'stanger'
         istatus.style.color = 'red' 
+        btn.innerHTML = 'add Friend'
         check = 0
     } 
 })
