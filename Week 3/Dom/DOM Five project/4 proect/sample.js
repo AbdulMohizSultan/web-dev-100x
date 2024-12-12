@@ -2,9 +2,9 @@ var elem = document.querySelectorAll('.elem')
 
 elem.forEach(function (val) {
     val.addEventListener('mouseenter', function(){
-        console('enter')
+        val.childNodes[3].style.opacity = 1
     })
     val.addEventListener('mouseleave', function(){
-        console('enter leave')
+        val.childNodes[3].style.opacity = 0
     })
 })
