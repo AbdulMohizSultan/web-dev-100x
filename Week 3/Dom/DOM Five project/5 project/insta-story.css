@@ -14,6 +14,7 @@ body {
     width: 310px;
     background-color: #fff;
     border-radius: 10px;
+    position: relative;
     border: 3px solid #000;
 }
 
@@ -24,7 +25,6 @@ body {
     padding: 15px;
     white-space: nowrap;
     overflow-x: auto;
-
 }
 
 #storiyan::-webkit-scrollbar {
@@ -38,7 +38,7 @@ body {
     width: 90px;
     overflow: hidden  ;
     display: inline-block;
-
+    margin-right: 5px;
 }
 
 #story img {
@@ -46,4 +46,14 @@ body {
   width: 100%;
   object-fit: cover;
   align-items:  center;
+}
+
+#full-screen {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   border-radius: 7px;
+   display: none;
+   background-size: cover;
+   background-position: center;
 }
