@@ -7,8 +7,8 @@ app.get("/sum", function(req, res) {
     const b = req.query.b;
 
     res.json({
-        ans: a + b
-    })
+        ans: a + b 
+    })  
 });
 
 app.get("/multiply", function(req, res) {
