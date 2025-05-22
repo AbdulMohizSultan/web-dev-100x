@@ -1,40 +1,40 @@
 const input = [1,2,3,4,5,6,7,8,10, 12, 123,123123,123123,123,12,3324,1234];
 
 
-//                                 Map
+                                Map
 
-////2
-// const NewArry = []; 
+//2
+const NewArry = []; 
 
-// for(let i = 0; i < input.length ; i ++){
-//     NewArry.push(input[i] * 2);
-// }
+for(let i = 0; i < input.length ; i ++){
+    NewArry.push(input[i] * 2);
+}
 
-// console.log(NewArry);
+console.log(NewArry);
 
-///// 2
-// const ans = input.map(function(i){
-//     return i * 2;
-// });
+/// 2
+const ans = input.map(function(i){
+    return i * 2;
+});
 
-// console.log(ans);
-
-
+console.log(ans);
 
 
-////3
 
 
-// const NewArry = [] ;
-
-// for ( let i = 0 ; i<input.length; i ++){
-//     if (input[i] %  2 == 0 ) {
-//         NewArry.push(input[i]);
-//     }
-// };
+//3
 
 
-// console.log(NewArry);
+const NewArry = [] ;
+
+for ( let i = 0 ; i<input.length; i ++){
+    if (input[i] %  2 == 0 ) {
+        NewArry.push(input[i]);
+    }
+};
+
+
+console.log(NewArry);
 
 
 
