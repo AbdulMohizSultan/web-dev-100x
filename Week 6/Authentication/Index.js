@@ -3,7 +3,6 @@ const { use } = require('react');
 
 const app = express();
 app.use(express.json());
-
 const users = [];
 
 // should return a random long stribing
@@ -26,6 +25,7 @@ app.post("/signup", function(req, res){
 
     users.push({
         username: username,
+        password:  password
     })
 
     res.json({
@@ -43,7 +43,7 @@ app.post("/signin", function(req, res){
     let foundUsers = null;
 
     for(let i = 0; i<users.length; i++){
-        if(users[i].username == username && user[i].password == password) {
+        if(users[i].username == username && users[i].password == password) {
             foundUsers = users[i]
         }
     }
