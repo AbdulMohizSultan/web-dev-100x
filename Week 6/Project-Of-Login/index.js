@@ -8,7 +8,12 @@ app.use(express.json());
 
 const users = [];
 
-app.post("/sigup", function(req, res){
+function logger(req, res , next) {
+    console.log(req.method + "request came");
+    next()
+}
+
+app.post("/sigup", logger , function(req, res){
     const username = req.body.username
     const password = req.body.password
 
@@ -22,7 +27,7 @@ app.post("/sigup", function(req, res){
     })
 })
 
-app.post("/sigin", function(req, res){
+app.post("/sigin", logger , function(req, res){
        const  username = req.body.username;
        const  password = req.body.password;
        
@@ -51,16 +56,13 @@ app.post("/sigin", function(req, res){
     
 })
 
-app.get("/me", auth, function(req, res){
-    // const token = req.headers.token;
-
-    // const decodedDate = jwt.verify(token, JWT_SECRET);
-
-    // if (decodedDate.username) {
+app.get("/me", logger , auth, function(req, res){
+        const token = req.headers.token;
+        const currentUser = req.username;
         let foundUser = null; 
 
         for (let i =0; i < users.length; i++){
-            if(users[i].username === username){
+            if(users[i].username === currentUser){
                 foundUser = users[i]
             }
         }
@@ -76,7 +78,8 @@ function auth (req , res , next){
     const token = req.headers.token;
     const decodedDate = jwt.verify(token, JWT_SECRET);
     if(decodedDate.username){
-    next()
+        req.username = decodedDate.username; 
+        next()
     } else {
         res.json({
             message: "use"
@@ -84,17 +87,5 @@ function auth (req , res , next){
     }
 }
 
-app.get("/todo", auth, function(req , res){
-    
-})
-
-app.get("/todo", auth, function(req , res){
-    
-})
-
-
-app.get("/todo", auth, function(req , res){
-    
-})
 
 app.listen(3000);
