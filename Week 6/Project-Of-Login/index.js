@@ -1,7 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = "randommohiz "
-const { use } = require('react');
+
 
 const app = express();
 app.use(express.json());
@@ -12,6 +12,10 @@ function logger(req, res , next) {
     console.log(req.method + "request came");
     next()
 }
+
+app.get("/", function (req, res){
+    res.sendFile(__dirname + "./public/index.html")
+})
 
 app.post("/sigup", logger , function(req, res){
     const username = req.body.username
