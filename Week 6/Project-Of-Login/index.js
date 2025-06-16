@@ -1,7 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const cors = require("cors");
-
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const JWT_SECRET = "randommohiz";
@@ -77,7 +76,7 @@ app.get("/me", logger, auth, (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}`);
+  console.log(` http://localhost:${PORT}`);
 });
 
 
