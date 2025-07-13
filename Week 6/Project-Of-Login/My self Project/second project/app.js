@@ -16,4 +16,4 @@ app.get("/", function(req,res){
 
 app.listen(3006);
 
-console.log(mohiz)
+console.log(mohiz)  
