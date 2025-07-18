@@ -29,33 +29,45 @@ app.post("/signup", async function(req, res) {
     })
 });
 
-app.post("/signin ", async  function(req, res){
+app.post("/signin", async function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    const user = await UserModel.findOne({
-        email:email,
-        password:password
-    })
+    const response = await UserModel.findOne({
+        email: email,
+        password: password,
+    });
 
- console.log(user)
-
-    if(user) {
+    if (response) {
         const token = jwt.sign({
-            id:user._id
+            id: response._id.toString()
         }, JWT_SECRET);
+
         res.json({
-          token:token
-    })
-    }else {
+            token
+        })
+    } else {
         res.status(403).json({
-            message: "incorrect credentials"
+            message: "Incorrect creds"
         })
     }
 });
 
-app.post("/todo", function(req, res){
 
+app.post("/todo",  async function(req, res) {
+    const userId = req.userId;
+    const title = req.body.title;
+    const done = req.body.done;
+
+    await TodoModel.create({
+        userId,
+        title,
+        done
+    });
+
+    res.json({
+        message: "Todo created"
+    })
 });
 
 app.get("/todos", function(req, res){
@@ -63,4 +75,4 @@ app.get("/todos", function(req, res){
 });
 
 
-app.listen(3000)
+app.listen(3001)
