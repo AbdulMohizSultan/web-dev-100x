@@ -1,3 +1,3 @@
 export const Country = () => {
-    return <h1>Country Pages</h1>
+    return <h1>Country pages</h1>
 }
